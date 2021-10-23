@@ -1,0 +1,63 @@
+/* supoort broesers */
+@mixin shadow($x, $y, $blur, $color) {
+  box-shadow: $x $y $blur $color;
+  -webkit-box-shadow: $x $y $blur $color;
+  -moz-box-shadow: $x $y $blur $color;
+  -o-box-shadow: $x $y $blur $color;
+}
+
+@mixin rounded($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+}
+
+@mixin linear-gradient($from, $to) {
+  /* fallback for sad browsers */
+  background-color: $to;
+  /* mozilla firefox */
+  background-image: -moz-linear-gradient($from, $to);
+  /* Opera */
+  background-image: -o-linear-gradient($from, $to);
+  /* webkit (safari 4+, chrome 1+) */
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, $from),
+    color-stop(1, $to)
+  );
+  /* webkit (chrome 1+) */
+  background-image: -webkit-linear-gradient($from, $to);
+  /* IE10 */
+  background-image: -ms-linear-gradient($from, $to);
+  /* W3C */
+  background-image: linear-gradient($from, $to);
+}
+/* End support browsers */
+
+/* Slides */
+@mixin titles-slides {
+  margin-top: 0.55em;
+  margin-bottom: 0.55em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+@mixin swiper-slides-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+/* End Slides */
+
+/* Product Labels */
+
+/* End Product Labels */
+
+/* Product Detail Paper */
+@mixin paper-product {
+  background-color: $shaft;
+  padding: 24px;
+}
+/* End Product Detail Paper */

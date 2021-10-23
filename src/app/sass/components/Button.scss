@@ -1,0 +1,25 @@
+button {
+  width: auto;
+  min-width: 80px;
+  border: 0.2px solid #ffffff23;
+  @include rounded(4px);
+  padding: 0.75rem;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.primary {
+  background-color: $bg-primary;
+  color: $color-common-light;
+}
+
+button.secondary {
+  background-color: $bg-common-dark;
+  color: $color-common-light;
+}
+
+button.large {
+  min-width: $btn-width-large;
+  font-size: $btn-font-large;
+}

@@ -1,0 +1,24 @@
+.taskMain {
+  position: relative;
+  padding: 0px 25px;
+
+  &__title {
+    font-size: $h5;
+  }
+
+  &__subtitle {
+    font-weight: 300;
+    font-size: $subtitle2;
+  }
+
+  .taskForm {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.input {
+  margin-bottom: 1rem;
+}
