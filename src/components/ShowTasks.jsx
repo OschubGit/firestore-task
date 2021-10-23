@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 
-const ShowTasks = (props) => {
+const ShowTasks = (props, { item }) => {
   const [tareas, setTareas] = useState([]);
 
   /* const [user, setUser] = React.useState(null); */
