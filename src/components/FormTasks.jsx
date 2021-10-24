@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db, auth } from "../firebase";
+import moment from "moment";
 
 const FormTasks = (props) => {
   const [nameTask, setNameTask] = useState("");
@@ -15,7 +16,7 @@ const FormTasks = (props) => {
     try {
       const newTask = {
         name: nameTask,
-        fecha: Date.now(),
+        fecha: moment().format("L").toString(),
       };
       const data = await db.collection(user.uid).add(newTask);
       console.log(data);
