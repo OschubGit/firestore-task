@@ -1,25 +1,83 @@
 import React from "react";
+import FormTasks from "./FormTasks";
 
 const TabsIsRight = () => {
   return (
     <div className="tabs is-left">
-      <ul>
-        <li>
-          <a href="www.instagram.com" href="www.instagram.com">
-            Tareas
-          </a>
-        </li>
-        <li>
-          <a href="www.instagram.com" href="www.instagram.com">
-            Recordatorios
-          </a>
-        </li>
-        <li>
-          <a href="www.instagram.com" href="www.instagram.com">
-            Notas
-          </a>
-        </li>
-      </ul>
+      <div>
+        <ul className="nav nav-tabs" id="myTab" role="tablist">
+          <li className="nav-item" role="presentation">
+            <button
+              className="nav-link active"
+              id="home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#home"
+              type="button"
+              role="tab"
+              aria-controls="home"
+              aria-selected="true"
+            >
+              Tareas
+            </button>
+          </li>
+          <li className="nav-item" role="presentation">
+            <button
+              className="nav-link"
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#profile"
+              type="button"
+              role="tab"
+              aria-controls="profile"
+              aria-selected="false"
+            >
+              Recordatorios
+            </button>
+          </li>
+          <li className="nav-item" role="presentation">
+            <button
+              className="nav-link"
+              id="contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#contact"
+              type="button"
+              role="tab"
+              aria-controls="contact"
+              aria-selected="false"
+            >
+              Notas
+            </button>
+          </li>
+        </ul>
+        <div className="tab-content" id="myTabContent">
+          <div
+            className="tab-pane fade show active"
+            id="home"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <div className="field">
+              <FormTasks />
+            </div>
+          </div>
+          <div
+            className="tab-pane fade"
+            id="profile"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+          >
+            Hola
+          </div>
+          <div
+            className="tab-pane fade"
+            id="contact"
+            role="tabpanel"
+            aria-labelledby="contact-tab"
+          >
+            hOLA
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

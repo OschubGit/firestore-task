@@ -24,9 +24,6 @@ function App(props) {
         <div className="mainApp">
           <div className="mainApp__addNotes">
             <TabsIsRight />
-            <div className="field">
-              <FormTasks />
-            </div>
           </div>
           <div className="mainApp__tasks">
             <article className="panel is-primary">
@@ -59,7 +56,6 @@ function App(props) {
 
               <>
                 <aside className="menu">
-                  <ShowTasks me={name} />
                   {user && <ShowTasks user={user} />}
                 </aside>
               </>
