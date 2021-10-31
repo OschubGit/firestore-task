@@ -2,12 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { auth, db } from "../../firebase";
 import { withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { ingresoUsuarioAccion } from "../../redux/usuarioDucks";
 
 const Login = (props) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [authError, setAuthError] = React.useState(null);
   const [authLog, setAuthLog] = React.useState(false);
+  const dispatch = useDispatch();
+  const loading = useSelector((store) => store.usuario.loading);
+  const activo = useSelector((store) => store.usuario.activo);
 
   const procesarDatos = (e) => {
     e.preventDefault();
@@ -85,6 +90,12 @@ const Login = (props) => {
     }
   }, [email, password, props.history]);
 
+  React.useEffect(() => {
+    if (activo) {
+      props.history.push("/");
+    }
+  }, [activo]);
+
   return (
     <div className="container p-5">
       <div className="py-5">
@@ -141,6 +152,15 @@ const Login = (props) => {
             </article>
           </div>
         )}
+
+        <div>
+          <button
+            disabled={loading}
+            onClick={() => dispatch(ingresoUsuarioAccion())}
+          >
+            Acceder con google
+          </button>
+        </div>
 
         <div>
           <p>
