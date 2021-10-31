@@ -1,8 +1,8 @@
 import React from "react";
 import TabsIsRight from "./TabsIsRight";
-import FormTasks from "./FormTasks";
 import ShowTasks from "./ShowTasks";
 import { auth } from "../firebase";
+import { withRouter } from "react-router";
 
 function App(props) {
   const [user, setUser] = React.useState(null);
@@ -17,7 +17,6 @@ function App(props) {
     }
   }, [props.history]);
 
-  const name = "Oscar";
   return (
     <div className="App">
       <header className="App-header">
@@ -67,4 +66,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default withRouter(App);

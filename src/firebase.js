@@ -5,13 +5,14 @@ import "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDZ271tUrITvDZyRBii5xQDDglNuayz6ws",
-    authDomain: "neptune-react.firebaseapp.com",
-    projectId: "neptune-react",
-    storageBucket: "neptune-react.appspot.com",
-    messagingSenderId: "18561530974",
-    appId: "1:18561530974:web:bebf10757495f7e217c8cf"
-  };
+  apiKey: "AIzaSyDZ271tUrITvDZyRBii5xQDDglNuayz6ws",
+  authDomain: "neptune-react.firebaseapp.com",
+  databaseURL: "https://neptune-react-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "neptune-react",
+  storageBucket: "neptune-react.appspot.com",
+  messagingSenderId: "18561530974",
+  appId: "1:18561530974:web:bebf10757495f7e217c8cf"
+};
   // Initialize Firebase
   app.initializeApp(firebaseConfig);
 

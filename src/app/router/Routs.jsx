@@ -6,7 +6,7 @@ const Admin = lazy(() => import("../../components/Auth/Admin"));
 const Login = lazy(() => import("../../components/Auth/Login"));
 const Layout = lazy(() => import("../../containers/Layout"));
 const Navbar = lazy(() => import("../../components/Navbar"));
-const MyDropzone = lazy(() => import("../../components/MyDropzone"));
+const Ducks = lazy(() => import("../../components/Ducks"));
 
 const Routs = () => {
   const [firebaseUser, setFirebaseUser] = useState(false);
@@ -32,11 +32,11 @@ const Routs = () => {
           <Route path="/admin">
             <Admin />
           </Route>
+          <Route path="/ducks">
+            <Ducks />
+          </Route>
           <Route path="/" exact>
             <Layout />
-          </Route>
-          <Route path="/drag" exact>
-            <MyDropzone />
           </Route>
         </Switch>
       </Router>
