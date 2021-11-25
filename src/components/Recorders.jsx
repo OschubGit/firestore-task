@@ -1,34 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { db, auth } from "../firebase";
 
 const Records = () => {
+  const [record, setRecord] = useState([]);
+
+  useEffect(() => {
+    const obtenerDatos = async () => {
+      db.collection(auth.currentUser.uid).onSnapshot((snapshot) =>
+        setRecord(snapshot.docs.map((doc) => doc.data()))
+      );
+    };
+    obtenerDatos();
+  }, []);
+
   return (
     <article className="panel is-primary">
       <p className="panel-heading">Recordatorios</p>
-      <p className="panel-tabs"></p>
-      <a href="www.instagram.com" className="panel-block is-active">
-        <span className="panel-icon">
-          <i className="fas fa-book" aria-hidden="true" />
-        </span>
-        bulma
-      </a>
-      <a href="www.instagram.com" className="panel-block">
-        <span className="panel-icon">
-          <i className="fas fa-book" aria-hidden="true" />
-        </span>
-        marksheet
-      </a>
-      <a href="www.instagram.com" className="panel-block">
-        <span className="panel-icon">
-          <i className="fas fa-book" aria-hidden="true" />
-        </span>
-        minireset.css
-      </a>
-      <a href="www.instagram.com" className="panel-block">
-        <span className="panel-icon">
-          <i className="fas fa-book" aria-hidden="true" />
-        </span>
-        jgthms.github.io
-      </a>
+      {record.map((r) => (
+        <a
+          href={r.recorderUrl ? r.recorderUrl : "#"}
+          className="panel-block is-active"
+        >
+          {r.recorderName}
+        </a>
+      ))}
     </article>
   );
 };
