@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListTasks = ({ tarea }) => {
+const ListTasks = ({ tarea, deleted }) => {
   return (
     <div>
       <li className="list-group-item">
@@ -9,8 +9,21 @@ const ListTasks = ({ tarea }) => {
           <span className="ml-3" style={{ color: "grey", fontSize: "10px" }}>
             {tarea.fecha}
           </span>
+          {tarea.priority && (
+            <span
+              class={
+                tarea.priority === "Bajo"
+                  ? "tag is-primary"
+                  : tarea.priority === "Urgente"
+                  ? "tag is-danger"
+                  : "tag is-warning"
+              }
+            >
+              {tarea.priority}
+            </span>
+          )}
         </div>
-        <button className="btn btn-danger btn-sm float-right">Eliminar</button>
+        {deleted}
       </li>
     </div>
   );

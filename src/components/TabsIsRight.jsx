@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import FormRecorders from "./FormRecorders";
 import FormTasks from "./FormTasks";
+import Recorders from "./Recorders";
 
 const TabsIsRight = () => {
+  const [show, setShow] = useState(undefined);
+
+  const ENUMM = {
+    TAREAS: "tareas",
+    RECORDATORIOS: "recordatorios",
+  };
+
+  const handleClick = () => {
+    setShow(ENUMM.TAREAS);
+  };
+
+  const handleRecordatorios = () => {
+    setShow(ENUMM.RECORDATORIOS);
+  };
+
   return (
     <div className="tabs is-left">
       <div>
         <ul className="nav nav-tabs" id="myTab" role="tablist">
           <li className="nav-item" role="presentation">
             <button
-              className="nav-link active"
+              className={show === "tareas" ? "nav-link active" : "nav-link"}
+              onClick={handleClick}
               id="home-tab"
               data-bs-toggle="tab"
               data-bs-target="#home"
@@ -22,7 +40,10 @@ const TabsIsRight = () => {
           </li>
           <li className="nav-item" role="presentation">
             <button
-              className="nav-link"
+              className={
+                show === "recordatorios" ? "nav-link active" : "nav-link"
+              }
+              onClick={handleRecordatorios}
               id="profile-tab"
               data-bs-toggle="tab"
               data-bs-target="#profile"
@@ -50,32 +71,7 @@ const TabsIsRight = () => {
           </li>
         </ul>
         <div className="tab-content" id="myTabContent">
-          <div
-            className="tab-pane fade show active"
-            id="home"
-            role="tabpanel"
-            aria-labelledby="home-tab"
-          >
-            <div className="field">
-              <FormTasks />
-            </div>
-          </div>
-          <div
-            className="tab-pane fade"
-            id="profile"
-            role="tabpanel"
-            aria-labelledby="profile-tab"
-          >
-            Hola
-          </div>
-          <div
-            className="tab-pane fade"
-            id="contact"
-            role="tabpanel"
-            aria-labelledby="contact-tab"
-          >
-            hOLA
-          </div>
+          {show === "tareas" ? <FormTasks /> : <FormRecorders />}
         </div>
       </div>
     </div>
